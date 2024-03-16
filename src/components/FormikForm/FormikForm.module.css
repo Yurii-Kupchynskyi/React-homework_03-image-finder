@@ -1,0 +1,20 @@
+input.input-error,
+select.input-error {
+  border: 1px solid rgb(218, 46, 46);
+}
+button:disabled {
+  opacity: 0.35;
+}
+button.active {
+  background-color: rgb(178, 129, 65);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.buttonContainer {
+  display: flex;
+
+  width: 300px;
+  justify-content: space-evenly;
+  margin: 10px 0px;
+}
