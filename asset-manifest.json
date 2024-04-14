@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/React-homework_03-image-finder/static/css/main.f4509734.css",
+    "main.js": "/React-homework_03-image-finder/static/js/main.605fcc51.js",
+    "index.html": "/React-homework_03-image-finder/index.html",
+    "main.f4509734.css.map": "/React-homework_03-image-finder/static/css/main.f4509734.css.map",
+    "main.605fcc51.js.map": "/React-homework_03-image-finder/static/js/main.605fcc51.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f4509734.css",
+    "static/js/main.605fcc51.js"
+  ]
+}
