@@ -8,27 +8,28 @@ import { options } from './axios/config';
 import { BounceLoader } from 'react-spinners';
 
 export const App = () => {
-  const [pictures, setPictures] = useState(null);
+  const [pictures, setPictures] = useState([]);
   const [isLoading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
 
   const fetchData = async () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${options.baseURL}?page=1&key=${options.apiKey}`,
+        `${options.baseURL}?key=${options.apiKey}`,
         {
           params: {
             q: 'Japan',
+            page: `${page}`,
             image_type: 'photo',
             orientation: 'horizontal',
-            per_page: '14',
+            per_page: '12',
           },
         }
       );
       const imageData = response.data.hits;
-      // console.log(imageData);
-      setPictures(imageData);
-      // return true;
+
+      setPictures([...pictures, ...imageData]);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -36,10 +37,28 @@ export const App = () => {
     }
   };
 
+  const loadUsers = e => {
+    fetchData();
+  };
+
+  const loadMore = () => {
+    setPage(prevPage => prevPage + 1);
+  };
+  useEffect(() => {
+    loadUsers();
+  }, [page]);
+
   useEffect(() => {
     console.log('Mouting phase: same when componentDidMount runs');
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (!isLoading && page > 1) {
+      console.log('Scrolling down...');
+      window.scrollBy(0, window.innerHeight);
+    }
+  }, [isLoading, pictures]);
 
   const showPictures = pictures => {
     if (pictures !== null) {
@@ -59,6 +78,9 @@ export const App = () => {
       ) : (
         showPictures(pictures)
       )}
+      <button onClick={loadMore} className={styles.button}>
+        {isLoading ? 'Loading...' : 'Load more'}
+      </button>
     </Box>
   );
 };
