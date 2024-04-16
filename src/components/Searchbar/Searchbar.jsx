@@ -4,17 +4,17 @@ import styles from './Searchbar.module.css';
 export const Searchbar = () => {
   return (
     <div>
-      <header class={styles.searchbar}>
-        <form class={styles.searchForm}>
-          <button type="submit" class={styles.searchForm_button}>
-            <span class={styles.searchForm_button_label}>Search</span>
+      <header className={styles.searchbar}>
+        <form className={styles.searchForm}>
+          <button type="submit" className={styles.searchForm_button}>
+            <span className={styles.searchForm_button_label}>Search</span>
           </button>
 
           <input
-            class={styles.searchForm_input}
+            className={styles.searchForm_input}
             type="text"
-            autocomplete="off"
-            autofocus
+            autoComplete="off"
+            autoFocus
             placeholder="Search images and photos"
           />
         </form>
