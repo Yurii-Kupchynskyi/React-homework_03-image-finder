@@ -4,7 +4,7 @@ import styles from './ImageGallaryItem.module.css';
 const ImageGalleryItem = props => {
   const { pictureData } = props;
   return (
-    <li key={pictureData.id} className={styles.imageGalleryItem}>
+    <li className={styles.imageGalleryItem}>
       <img
         src={pictureData.webformatURL}
         alt={pictureData.tags}

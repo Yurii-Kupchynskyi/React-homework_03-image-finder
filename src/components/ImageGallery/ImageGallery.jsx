@@ -7,8 +7,8 @@ export const ImageGallery = ({ data }) => {
     <div>
       <ul className={styles.imageGallery}>
         {data &&
-          data.map(picture => (
-            <ImageGalleryItem pictureData={picture} key={picture.id} />
+          data.map((picture, index) => (
+            <ImageGalleryItem pictureData={picture} key={index} />
           ))}
       </ul>
     </div>
